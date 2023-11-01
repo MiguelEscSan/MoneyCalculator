@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="205f33fd-b876-4f5a-b609-d4ed382b1bbb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/MoneyCalculatorGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/ExchangeRates.java" afterDir="false" />
+    <list default="true" id="205f33fd-b876-4f5a-b609-d4ed382b1bbb" name="Changes" comment="First Version MoneyCalculator">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MainGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/control/ExchangeRatesCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/control/command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/CurrencyDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/MoneyDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/MoneyDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mock/JsonExchangeRatesLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mock/MockCurrencyDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mock/TsvFileCoinsLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Currency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Money.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swing/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/MoneyCalculatorGui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExchangeRates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ExchangeRates.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,21 +57,60 @@
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;224&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE&quot;: &quot;left&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/migue/Desktop/TERCERO/IS2/MoneyCalculator&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/migue/Desktop/TERCERO/IS2/MoneyCalculator&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\Desktop\TERCERO\IS2\MoneyCalculator\src\main\java\Images" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="App" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainGUI">
+    <configuration name="AppControl.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AppControl.Main" />
+      <module name="MoneyCalculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AppControl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App.Main" />
       <module name="MoneyCalculator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="mock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainGUI" />
+      <module name="MoneyCalculator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="model.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.Main" />
+      <module name="MoneyCalculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mock.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -74,6 +120,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainGUI" />
+        <item itemvalue="Application.AppControl.Main" />
+        <item itemvalue="Application.model.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -87,6 +136,41 @@
       <option name="presentableId" value="Default" />
       <updated>1696354352848</updated>
     </task>
+    <task id="LOCAL-00001" summary="First Version MoneyCalculator">
+      <option name="closed" value="true" />
+      <created>1696545143962</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696545143962</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.tsv" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First Version MoneyCalculator" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Version MoneyCalculator" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gui/MoneyCalculatorGui.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
