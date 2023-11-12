@@ -22,12 +22,10 @@ public class JsonExchangeRatesLoader implements ExchangeRatesLoader {
     private String url;
     private ExchangeRates exchangeRate;
 
-
-    public JsonExchangeRatesLoader(String url) {
-        this.url = url;
+    public void setUrl(Currency base, Currency target) {
+        // Por limitaciones de la api no podemos escoger el base no obstante seguiria el mismo patron que para escoger el target.
+        this.url = "http://api.exchangeratesapi.io/v1/latest?access_key=e7a83fdc52a9dac2758d5d8fdc326d4a&symbols="+target.getCode()+"&format=1";
     }
-
-
     @Override
     public ExchangeRates load(Currency from, Currency to) {
         try {
@@ -45,8 +43,8 @@ public class JsonExchangeRatesLoader implements ExchangeRatesLoader {
         URL url = new URL(this.url);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
-        connection.setConnectTimeout(5000);
-        connection.setReadTimeout(5000);
+        connection.setConnectTimeout(10000);
+        connection.setReadTimeout(10000);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         StringBuilder response = new StringBuilder();

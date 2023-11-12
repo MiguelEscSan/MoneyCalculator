@@ -17,13 +17,6 @@ public class Currency {
         this.amount = amount;
     }
 
-    public Currency(String code) {
-        this.code = code;
-        this.name="";
-        this.amount=null;
-        this.symbol="";
-    }
-
     public String getSymbol() {
         return symbol;
     }
@@ -43,12 +36,7 @@ public class Currency {
 
     @Override
     public String toString() {
-        return "Currency{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", symbol='" + symbol + '\'' +
-                ", amount=" + amount +
-                '}';
+        return code + "-" + name + " " + symbol;
     }
 
     @Override

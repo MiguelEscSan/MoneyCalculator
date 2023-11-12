@@ -3,10 +3,10 @@ package model;
 import java.util.Objects;
 
 public class Money {
-    private final float amount;
+    private final double amount;
     private final Currency currency;
 
-    public Money(float amount, Currency currency) {
+    public Money(double amount, Currency currency) {
         this.amount = amount;
         this.currency = currency;
     }
@@ -23,7 +23,7 @@ public class Money {
                 '}';
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
@@ -32,7 +32,7 @@ public class Money {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Money money = (Money) o;
-        return Float.compare(amount, money.amount) == 0 && Objects.equals(currency, money.currency);
+        return Double.compare(amount, money.amount) == 0 && Objects.equals(currency, money.currency);
     }
 
     @Override
