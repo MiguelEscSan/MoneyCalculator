@@ -49,13 +49,13 @@ public class TsvFileCoinsLoader implements CoinsLoader {
             return new Currency(
                     split[0],
                     split[1],
-                    split[2], null
+                    split[2]
             );
         } else {
             return new Currency(
                     split[0],
                     split[1],
-                    "", null);
+                    "");
         }
 
     }

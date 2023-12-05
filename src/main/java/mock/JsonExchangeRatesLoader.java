@@ -60,7 +60,7 @@ public class JsonExchangeRatesLoader implements ExchangeRatesLoader {
     }
 
     private ExchangeRates parseJsonResponse(String jsonResponse, Currency from, Currency to) throws ParseException {
-        TsvFileCoinsLoader coinsLoader = new TsvFileCoinsLoader(new File("C:\\Users\\migue\\Desktop\\TERCERO\\IS2\\MoneyCalculator\\src\\main\\resources\\currencies.tsv"));
+        TsvFileCoinsLoader coinsLoader = new TsvFileCoinsLoader(new File("src/main/resources/currencies.tsv"));
         List<Currency> currencies = coinsLoader.load();
         JsonParser jsonParser = new JsonParser();
         JsonObject jsonObject = jsonParser.parse(jsonResponse).getAsJsonObject();
