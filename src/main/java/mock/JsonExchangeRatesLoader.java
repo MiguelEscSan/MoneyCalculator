@@ -7,10 +7,7 @@ import interfaces.ExchangeRatesLoader;
 import model.Currency;
 import model.ExchangeRates;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.ParseException;
@@ -60,7 +57,9 @@ public class JsonExchangeRatesLoader implements ExchangeRatesLoader {
     }
 
     private ExchangeRates parseJsonResponse(String jsonResponse, Currency from, Currency to) throws ParseException {
-        TsvFileCoinsLoader coinsLoader = new TsvFileCoinsLoader(new File("src/main/resources/currencies.tsv"));
+        ClassLoader classLoader = JsonExchangeRatesLoader.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream("currencies.tsv");
+        TsvFileCoinsLoader coinsLoader = new TsvFileCoinsLoader(inputStream);
         List<Currency> currencies = coinsLoader.load();
         JsonParser jsonParser = new JsonParser();
         JsonObject jsonObject = jsonParser.parse(jsonResponse).getAsJsonObject();

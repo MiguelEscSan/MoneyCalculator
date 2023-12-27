@@ -1,15 +1,7 @@
 package model;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.*;
+import java.util.Date;
+import java.util.Objects;
 public class ExchangeRates {
 
     private final Currency from;

@@ -1,62 +1,44 @@
 package mock;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import interfaces.CoinsLoader;
+import model.Currency;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import interfaces.*;
-import model.Currency;
 
 public class TsvFileCoinsLoader implements CoinsLoader {
 
-    private final File file;
+    private final InputStream file;
 
-    public TsvFileCoinsLoader(File file) {
+    public TsvFileCoinsLoader(InputStream file) {
         this.file = file;
     }
 
     @Override
     public List<Currency> load() {
-        try {
-            return load(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(file))) {
+            return load(bufferedReader);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error al cargar el archivo", e);
         }
-    }
-
-    private List<Currency> load(FileReader fileReader) throws IOException {
-        return load(new BufferedReader(fileReader));
     }
 
     private List<Currency> load(BufferedReader bufferedReader) throws IOException {
         List<Currency> result = new ArrayList<>();
-        while (true) {
-            String line = bufferedReader.readLine();
-            if(line == null) break;
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
             result.add(toCurrency(line));
-        } return result;
+        }
+        return result;
     }
 
     private Currency toCurrency(String line) {
-        return toCurrency(line.split("\t"));
-    }
-
-    private Currency toCurrency(String[] split) {
-        if(2 < split.length) {
-            return new Currency(
-                    split[0],
-                    split[1],
-                    split[2]
-            );
+        String[] split = line.split("\t");
+        if (split.length > 2) {
+            return new Currency(split[0], split[1], split[2]);
         } else {
-            return new Currency(
-                    split[0],
-                    split[1],
-                    "");
+            return new Currency(split[0], split[1], "");
         }
-
     }
 }
